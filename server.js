@@ -18,12 +18,12 @@ app.use('/api/workouts', workoutRoutes);
 // connect to db
 console.log(dotenv);
 mongoose
-  .connect(dotenv.parsed.MONG_URI)
+  .connect(process.env.MONG_URI)
   .then(() => {
     console.log('connected to db');
     // listen for request
     app.listen(dotenv.parsed.PORT, () => {
-      console.log('Listening on port ', dotenv.parsed.PORT);
+      console.log('Listening on port ', process.env.PORT);
     });
   })
   .catch((err) => {
